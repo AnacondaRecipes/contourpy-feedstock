@@ -45,7 +45,7 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  license_family: https://github.com/contourpy/contourpy/blob/main/LICENSE
+  license_url: https://github.com/contourpy/contourpy/blob/main/LICENSE
   description: |
     ContourPy is a Python library for calculating contours of 2D quadrilateral
     grids.  It is written in C++11 and wrapped using pybind11.
