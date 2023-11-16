@@ -19,14 +19,14 @@ requirements:
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
     - meson >=1.2.0                       # [build_platform != target_platform]
     - meson-python >=0.13.1               # [build_platform != target_platform]
-    - ninja                               # [build_platform != target_platform]
+    - ninja >=1.8.2                       # [build_platform != target_platform]
     - pybind11 >=2.10.4                   # [build_platform != target_platform]
     - python                              # [build_platform != target_platform]
   host:
     - pip
     - meson >=1.2.0
     - meson-python >=0.13.1
-    - ninja
+    - ninja >=1.8.2
     - pybind11 >=2.10.4
     - python
   run:
@@ -51,7 +51,6 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  license_url: https://github.com/contourpy/contourpy/blob/main/LICENSE
   description: |
     ContourPy is a Python library for calculating contours of 2D quadrilateral
     grids.  It is written in C++11 and wrapped using pybind11.
