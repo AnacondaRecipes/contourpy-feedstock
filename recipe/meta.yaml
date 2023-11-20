@@ -12,17 +12,17 @@ source:
 build:
   number: 0
   skip: true  # [py<39]
-  script: {{ PYTHON }} -m pip install . -vv --no-build-isolation
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   build:
     - {{ compiler('cxx') }}
+    - ninja 1.10.2
   host:
     - pip
-    - meson >=1.2.0
-    - meson-python >=0.13.1
-    - ninja >=1.8.2
-    - pybind11 >=2.10.4
+    - meson ==1.2.1
+    - meson-python ==0.13.1
+    - pybind11 ==2.10.4
     - python
   run:
     - python
