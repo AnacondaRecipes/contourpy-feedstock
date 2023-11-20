@@ -18,7 +18,6 @@ requirements:
   build:
     - {{ compiler('cxx') }}
   host:
-    - ninja
     - pip
     - meson ==1.2.1
     - meson-python ==0.13.1
