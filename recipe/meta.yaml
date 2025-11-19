@@ -13,35 +13,38 @@ build:
   number: 0
   skip: true  # [py<311]
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  missing_dso_whitelist:  # [s390x]
-    - $RPATH/ld64.so.1  # [s390x]
+  ignore_run_exports:
+    - libcxx
 
 requirements:
   build:
     - {{ compiler('cxx') }}
   host:
+    - python
     - pip
     - meson >=1.2.0
-    - pybind11 >=2.13.2,!=2.13.3
-    - python
     - meson-python >=0.13.1
+    - pybind11 >=2.13.2,!=2.13.3
   run:
     - python
     - numpy >=1.25
-  run_constrained:
-    - mypy ==1.17.0
 
 test:
+  source_files:
+    - tests
   imports:
     - contourpy
     - contourpy.util
   commands:
     - pip check
-    - python -c "import contourpy as c; print(c.contour_generator(z=[[0, 1], [2, 3]]).lines(0.9))"
-    - python -c "from contourpy.util import build_config; from pprint import pprint; pprint(build_config())"
-    - python -c "import platform, sys; print(sys.version, platform.uname())"
+    - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
+    - pytest -v tests
   requires:
     - pip
+    - pytest
+    - matplotlib
+    - pillow
+    - wurlitzer
 
 about:
   home: https://github.com/contourpy/contourpy
