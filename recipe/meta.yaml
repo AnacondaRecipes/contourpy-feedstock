@@ -42,7 +42,7 @@ test:
     - pytest
     - matplotlib
     - pillow
-    - wurlitzer
+    - wurlitzer  # [unix]
 
 about:
   home: https://github.com/contourpy/contourpy
