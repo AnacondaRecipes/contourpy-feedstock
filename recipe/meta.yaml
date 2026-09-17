@@ -22,12 +22,11 @@ requirements:
     - pip
     - meson >=1.2.0
     - meson-python >=0.18.0
+    - ninja-base  # meson-python metadata step requires ninja >=1.8.2
     - pybind11 >=2.13.2,!=2.13.3
   run:
     - python
     - numpy >=2.0
-  run_constrained:
-    - mypy ==2.1.0
 
 test:
   source_files:
