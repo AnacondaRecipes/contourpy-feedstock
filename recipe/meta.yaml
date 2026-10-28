@@ -30,20 +30,21 @@ requirements:
 
 test:
   source_files:
-    - tests
+    - tests  # [py<315]
   imports:
     - contourpy
     - contourpy.util
   commands:
     - pip check
     - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
-    - pytest -v tests
+    # matplotlib-base is the parent waiting on this py315 build.
+    - pytest -v tests  # [py<315]
   requires:
     - pip
-    - pytest
-    - matplotlib
-    - pillow
-    - wurlitzer  # [unix]
+    - pytest  # [py<315]
+    - matplotlib  # [py<315]
+    - pillow  # [py<315]
+    - wurlitzer  # [unix and py<315]
 
 about:
   home: https://github.com/contourpy/contourpy
